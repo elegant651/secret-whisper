@@ -14,7 +14,7 @@ const getters = {
       name: state.name
     }
   },
-  pendingReviews: state => {
+  pendingReviews: state => {    
     return state.feedbacks.filter(f => f.is_submit === false)
   }
 }
@@ -24,7 +24,9 @@ const mutations = {
     state.id = employee.id
     state.email = employee.email
     state.name = employee.name
-    state.feedbacks = Object.values(employee.feedbacks)
+    if(employee.feedbacks) {
+      state.feedbacks = Object.values(employee.feedbacks)
+    }    
   },
   clear() {
     state.id = ''

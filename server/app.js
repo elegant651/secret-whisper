@@ -41,7 +41,7 @@ function respCorsHeader(req,res) {
 
 //fb
 const fbadmin = require('firebase-admin')
-const serviceAccount = require('./testdemo2-95d1d-firebase-adminsdk-lbn4t-87db78b522.json')
+const serviceAccount = require('./testdemo2-95d1d-firebase-adminsdk-lbn4t-e1315df355.json')
 
 fbadmin.initializeApp({
   credential: fbadmin.credential.cert(serviceAccount)
