@@ -20,7 +20,7 @@
     </v-navigation-drawer>
 
     <v-app-bar color="#FFF" app clipped-left dense>
-      <v-toolbar-title>Performance Review</v-toolbar-title> 
+      <v-toolbar-title>Secure Messanger</v-toolbar-title> 
     </v-app-bar>
     <v-content>
       <v-container fluid class="fill-height">
@@ -37,7 +37,8 @@
         { text: 'Home', route: '/' },
         { text: 'Admin Employees', route: '/admin-employees' },
         { text: 'Admin Reviews', route: '/admin-reviews' },
-        { text: 'Employee View', route: '/employee-view' }
+        { text: 'Employee View', route: '/employee-view' },
+        { text: 'Secret Board', route: '/secret-board' }
       ]      
     })    
   }

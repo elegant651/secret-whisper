@@ -28,5 +28,10 @@ export default new Router({
       name: 'employeeView',
       component: () => import('./views/EmployeeView.vue')
     },
+    {
+      path: '/secret-board',
+      name: 'secretBoard',
+      component: () => import('./views/SecretBoard.vue')
+    }
   ]
 })
