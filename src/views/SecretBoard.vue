@@ -1,10 +1,14 @@
 <template>
   <div>
-    <BoardTable :items="items" />
+    <BoardTable :items="allItems" v-on:create-item="onCreateItem" v-on:update-item="onUpdateItem" />
   </div>
 </template>
 
 <script>
+import Web3 from 'web3'
+const web3 = new Web3();
+
+import * as WhisperService from '@/services/WhisperService'
 import { mapActions, mapMutations, mapGetters } from 'vuex'
 
 import BoardTable from '@/components/BoardTable'
@@ -18,47 +22,55 @@ export default {
       headers: [
         { text: 'Assignee_id', value: 'assignee_id' },        
         { text: 'Actions', value: 'action', sortable: false }
-      ],
-      items: [
-        {
-          id: 1,
-          title: 'new secret message',
-          created_at: '09 Jan 2020'
-        },
-        {
-          id: 2,
-          title: 'new secret message2',
-          created_at: '01 Jan 2020'
-        }
       ]
     }
   },  
   computed: {
-    // ...mapGetters('employeeForm', {
-    //   items: 'pendingReviews'
-    // })
+    ...mapGetters('board', [
+      'numItems',
+      'allItems'
+    ])
   },
   async mounted() {    
-    
+    await WhisperService.init()    
+    await WhisperService.sendPublicMsg("testtete")
+
+    this.onSubscribe()
   },
-  methods: {
-    ...mapActions('employees', [
-      'getEmployee'
+  methods: {    
+    ...mapMutations('board', [
+      'setItems',
+      'addItem'
     ]),
-    ...mapMutations('reviews', [
-      'setReviews'
-    ]),
-    ...mapMutations('reviewForm', [
-      'setReview'
-    ]),
-    ...mapActions('reviewForm', [
-      'registerReview',
-      'updateReview'
+    ...mapMutations('boardForm', [
+      'setContent'
     ]),
 
-    async onFeedbackItem (id, item) {      
-      this.setReview(item)
-      await this.updateReview(id)
+    async onSubscribe () {
+      WhisperService.subscribePublicMsg((data) => {
+        // this.addItem(web3.utils.toAscii(data.payload))
+        const content = web3.utils.toAscii(data.payload)
+        console.log(content)
+        this.addContent(content)
+      })
+    },
+
+    async addContent (content) {
+      const item = {
+        id: this.numItems,
+        title: content,
+        created_at: new Date()
+      }
+      this.setContent(item)
+      this.addItem(item)
+    },
+
+    async onCreateItem (item) {
+      this.addContent(item.title)
+    },
+
+    async onUpdateItem (id, item) {
+      this.addContent(item.title)
     }
   }
 }
