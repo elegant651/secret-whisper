@@ -90,6 +90,10 @@
           value: 'title',          
         },
         {
+          text: 'Content',
+          value: 'content',
+        },
+        {
           text: 'created_at',
           value: 'created_at'
         },

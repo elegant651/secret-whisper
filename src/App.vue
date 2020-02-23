@@ -23,9 +23,7 @@
       <v-toolbar-title>Secure Messanger</v-toolbar-title> 
     </v-app-bar>
     <v-content>
-      <v-container fluid class="fill-height">
-        <router-view/>
-      </v-container>
+      <router-view/>      
     </v-content>    
   </v-app>
 </template>
@@ -38,7 +36,9 @@
         { text: 'Admin Employees', route: '/admin-employees' },
         { text: 'Admin Reviews', route: '/admin-reviews' },
         { text: 'Employee View', route: '/employee-view' },
-        { text: 'Secret Board', route: '/secret-board' }
+        { text: 'Secret Board', route: '/secret-board' },
+        { text: 'Manage Chat', route: '/manage-chat'},
+        { text: 'Join Chat', route: '/login'}
       ]      
     })    
   }

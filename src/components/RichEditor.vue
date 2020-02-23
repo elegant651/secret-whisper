@@ -53,8 +53,7 @@ export default {
   data() {
     return {
       editor: new Editor({
-        content: `Type here...
-        `,
+        content: ``,
         extensions:[
             new Heading({levels: [1,2,3]}),
             new Bold(),

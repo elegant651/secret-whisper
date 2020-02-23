@@ -66,11 +66,13 @@ export default {
     },
 
     async onCreateItem (item) {
-      this.addContent(item.title)
+      // this.addContent(item.title)
+      await WhisperService.sendPublicMsg(item.title)
     },
 
     async onUpdateItem (id, item) {
-      this.addContent(item.title)
+      // this.addContent(item.title)
+      await WhisperService.sendPublicMsg(item.title)
     }
   }
 }

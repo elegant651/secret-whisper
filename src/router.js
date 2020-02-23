@@ -14,6 +14,16 @@ export default new Router({
       component: Home
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('./views/Home.vue')
+    },
+    {
       path: '/admin-employees',
       name: 'adminEmployees',
       component: () => import('./views/AdminEmployees.vue')
@@ -32,6 +42,11 @@ export default new Router({
       path: '/secret-board',
       name: 'secretBoard',
       component: () => import('./views/SecretBoard.vue')
+    },
+    {
+      path: '/manage-chat',
+      name: 'manage-chat',
+      component: () => import('./components/ManageChat.vue')
     }
   ]
 })
