@@ -38,9 +38,10 @@
         { text: 'Employee View', route: '/employee-view' },
         { text: 'Secret Board', route: '/secret-board' },
         { text: 'Manage Chat', route: '/manage-chat'},
+        { text: 'Pending Parties', route: '/pending-parties'},
         { text: 'Join Chat', route: '/login'}
-      ]      
-    })    
+      ]
+    })
   }
 </script>
 

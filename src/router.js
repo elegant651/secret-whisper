@@ -47,6 +47,11 @@ export default new Router({
       path: '/manage-chat',
       name: 'manage-chat',
       component: () => import('./components/ManageChat.vue')
+    },
+    {
+      path: '/pending-parties',
+      name: 'pending-parties',
+      component: () => import('./components/PendingParties.vue')
     }
   ]
 })

@@ -5,8 +5,22 @@
       <h4>Inssa chat title</h4>
     </div>
     <v-spacer></v-spacer>
+    <v-btn icon class="btnInvite mr-2" href="http://localhost:8080/pending-parties">invite</v-btn>
+    <v-btn icon class="btnShare mr-2" @click.prevent="copyData"><v-icon>share</v-icon></v-btn>
     <v-btn icon class="btnHelp mr-2"><v-icon>help</v-icon></v-btn>
   </v-row>
+
+  <v-snackbar
+    v-model="snackbar" top>
+    {{ errorTxt }}
+    <v-btn
+      color="pink"
+      text
+      @click="snackbar = false"
+    >
+      Close
+    </v-btn>
+  </v-snackbar>
 </div>
 </template>
 
@@ -16,12 +30,27 @@ import { mapGetters } from 'vuex'
 
 export default {
   data: () => ({
-    
+    snackbar: false,
+    errorTxt: ''
   }),  
   computed: {
     ...mapGetters('room', [
       'roomInfo'
     ])
+  },
+  methods: {
+    copyData: function () {
+      const link = "http://localhost:8080"
+      var textArea = document.createElement("textarea");
+      textArea.value = link;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("Copy");
+      this.errorTxt = '링크 복사가 완료되었습니다.' 
+      this.snackbar = true
+
+      textArea.remove();
+    },
   }
 
 }

@@ -7,6 +7,8 @@ import VueChatScroll from 'vue-chat-scroll'
 import firebase from "firebase"
 import "firebase/firestore";
 
+Vue.use(VueChatScroll)
+
 
 
 Vue.config.productionTip = false
