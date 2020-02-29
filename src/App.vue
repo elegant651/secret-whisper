@@ -39,7 +39,8 @@
         { text: 'Secret Board', route: '/secret-board' },
         { text: 'Manage Chat', route: '/manage-chat'},
         { text: 'Pending Parties', route: '/pending-parties'},
-        { text: 'Join Chat', route: '/login'}
+        { text: 'Join Chat', route: '/login'},
+        { text: 'Board', route: '/board'}
       ]
     })
   }

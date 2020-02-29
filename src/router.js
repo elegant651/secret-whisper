@@ -52,6 +52,11 @@ export default new Router({
       path: '/pending-parties',
       name: 'pending-parties',
       component: () => import('./components/PendingParties.vue')
+    },
+    {
+      path: '/board',
+      name: 'board',
+      component: () => import('./views/Board.vue')
     }
   ]
 })

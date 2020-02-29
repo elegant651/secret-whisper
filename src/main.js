@@ -9,7 +9,13 @@ import "firebase/firestore";
 
 Vue.use(VueChatScroll)
 
-
+const config = {
+  apiKey: "AIzaSyAsB8ll6v7BkBoTtAooUVUfYULK6QZ6DUo",
+  authDomain: "goblin2-6069f.firebaseapp.com",
+  storageBucket: "goblin2-6069f.appspot.com",
+  projectId: "goblin2-6069f"
+};
+firebase.initializeApp(config);
 
 Vue.config.productionTip = false
 
